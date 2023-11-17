@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    List<Character> characters = new ArrayList();
+    List<Character> characters = new ArrayList<>();
     Character character;
     WeaponUsage w;
     ArmourUsage a;
@@ -23,13 +23,12 @@ public class Menu {
     int armourType;
 
 
-    public String info1() {
+    public void info1() {
         System.out.println("Enter the name of your character: ");
         name = scannerString.nextLine();
-        return name;
     }
 
-    public Character create() {
+    public void create() {
         do {
             System.out.println("Choose the class of your character: \n 1. Dwarf \n 2. Elf \n 3. Queen \n 4. Ranger \n 5. Tiefling \n 6. Wizard");
             type = scannerInt.nextInt();
@@ -66,8 +65,6 @@ public class Menu {
             }
 
         } while (!(type >= 1 && type <= 6));
-
-        return character;
 
     }
 
@@ -206,19 +203,21 @@ public class Menu {
         answer(ch1, ch2);
         System.out.println();
         System.out.println("This is the fight between " + ch1.getN() + " and " + ch2.getN());
-        System.out.println("\n" +
-                "                            ,--.                       ,--.\n" +
-                "                          _',|| )                     ( \\\\ |\n" +
-                "            ,.,,.,-----\"\"' \"--v-.___                   `_\\\\.'--,..__\n" +
-                "            |,\"---.--''/       /,.__\"\")`-:|._________-\"'     (--..__'/--.\n" +
-                "                      /     ,.\"'    \"\"-'-\"|'  _.,-\"_.'-\"\\     \\     ` '\"\"\n" +
-                "                   _ )____---------------(|--\"_|--'      '__   \\_\n" +
-                "                _,' |  .''''\"\"---.        '\"\"'       ,---'''.   /\".\n" +
-                "            _,-'  .\" \\/,,..---/_ /                   | -|.._____|  \\_\n" +
-                "          ,-\\,.'''            \\ (                    |\"\")       \"-,  \\\n" +
-                "      _ .\".--\"                ( :                    | (           '. \"\\_\n" +
-                "    ,- ,.\"                    ; !                    ; |             \\,_ `.\n" +
-                "___(_(.\"           -------....L_\">        _________.-/_J                '\\_')\n");
+        System.out.println("""
+
+                                            ,--.                       ,--.
+                                          _',|| )                     ( \\\\ |
+                            ,.,,.,-----""' "--v-.___                   `_\\\\.'--,..__
+                            |,"---.--''/       /,.__"")`-:|._________-"'     (--..__'/--.
+                                      /     ,."'    ""-'-"|'  _.,-"_.'-"\\     \\     ` '""
+                                   _ )____---------------(|--"_|--'      '__   \\_
+                                _,' |  .''''""---.        '""'       ,---'''.   /".
+                            _,-'  ." \\/,,..---/_ /                   | -|.._____|  \\_
+                          ,-\\,.'''            \\ (                    |"")       "-,  \\
+                      _ .".--"                ( :                    | (           '. "\\_
+                    ,- ,."                    ; !                    ; |             \\,_ `.
+                ___(_(."           -------....L_">        _________.-/_J                '\\_')
+                """);
 
     }
 
@@ -270,14 +269,14 @@ public class Menu {
     }
 
     public void action() {
-        int cha = 0;
+        int cha;
         do {
             System.out.println("Which character is supposed to take an action?");
             showList();
             cha = scannerInt.nextInt();
         } while (!(cha >= 1 && cha <= characters.size()));
 
-        int number2 = 0;
+        int number2;
         do {
             System.out.println("What do you want to do? \n 1.Go forward \n 2.Show off a weapon \n 3.Change a weapon \n 4.Change an armour \n 5.Show an armour specification \n 6.Fight \n 7.Surprise");
             number2 = scannerInt.nextInt();
